@@ -33,7 +33,7 @@ IPAddress local_ip(192,168,0,10);    //Define the IP Address of the Access Point
 IPAddress gateway(192,168,0,10);     //Define the Gateway address of the Access Point
 IPAddress subnet(255,255,255,0);    //Define the subnet mask Identity
 
-ESP8266WebServer server(80);     //Create a server object on port 80 (for SSH communication)
+ESP8266WebServer server(52);     //Create a server object on port 80 (for SSH communication)
 
 //=================================================================================================
 
