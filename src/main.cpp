@@ -126,7 +126,7 @@ void madras() {
         Serial.println("Dispensing Cranberry Juice...");
         digitalWrite(relayCranberry, HIGH);
         delay(70500);       //dispense cranberry juice for 70.5 seconds
-        digitalWrite(relayLemonade, LOW);
+        digitalWrite(relayCranberry, LOW);
 
         Serial.println("Dispensing Orange Juice...");
         digitalWrite(relayOJ, HIGH);
@@ -268,6 +268,9 @@ void setup() {
     Serial.println("Started!");       //print confirmation to the monitor to confirm setup has run
     FastLED.setBrightness(50);      //contro the maximum brightness of the LED indicators
     FastLED.addLeds<WS2812, ledPin, GRB>(leds, NUM_LEDS);   //add LEDs to FastLED, include LED type, pin, and color order, apply to led array
+
+    fill_solid(leds, NUM_LEDS, CRGB(255, 255, 255));
+    FastLED.show();
 }
 
 void loop() {
@@ -278,7 +281,7 @@ void loop() {
         //uncomment line 208 for diagnostics
         //Serial.write(Serial.read());
         char appOrderState = Serial.read();     //read the serial port and save any data as
-        Serial.println(appOrderState);
+        //Serial.println(appOrderState);
         if (appOrderState == '1') {
             inProgress = true;
             vodkaLemonade();
